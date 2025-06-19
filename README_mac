@@ -1,0 +1,9 @@
+cmake ..   -DCMAKE_CXX_FLAGS="\
+    -Xpreprocessor -fopenmp \
+    -I$(brew --prefix libomp)/include \
+    -I$(brew --prefix mpfr)/include \
+    -I$(brew --prefix gmp)/include \
+    -Wno-error=overloaded-virtual"   -DCMAKE_EXE_LINKER_FLAGS="\
+    -L$(brew --prefix libomp)/lib -lomp \
+    -L$(brew --prefix mpfr)/lib -lmpfr \
+    -L$(brew --prefix gmp)/lib -lgmp"   && make -j
